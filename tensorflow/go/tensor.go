@@ -58,6 +58,7 @@ const (
 	Uint16     DataType = C.TF_UINT16
 	Complex128 DataType = C.TF_COMPLEX128
 	Half       DataType = C.TF_HALF
+	//Posit      DataType = C.TF_POSIT
 )
 
 // Tensor holds a multi-dimensional array of elements of a single data type.
@@ -462,7 +463,7 @@ func isTensorSerializable(dataType DataType) error {
 	// serialization and deserialization of Tensors.  Till then capitalize
 	// on knowledge of the implementation for numeric types.
 	switch dataType {
-	case Float, Double, Int32, Uint8, Int16, Int8, Complex, Int64, Bool, Quint8, Qint32, Bfloat16, Qint16, Quint16, Uint16, Complex128, Half:
+	case Float, Double, Int32, Uint8, Int16, Int8, Complex, Int64, Bool, Quint8, Qint32, Bfloat16, Qint16, Quint16, Uint16, Complex128, Half: // Posit
 		return nil
 	default:
 		return fmt.Errorf("serialization of tensors with the DataType %d is not yet supported, see https://github.com/tensorflow/tensorflow/issues/6003", dataType)

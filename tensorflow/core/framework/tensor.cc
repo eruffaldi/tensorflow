@@ -285,6 +285,7 @@ struct ProtoHelper {};
   };
 PROTO_TRAITS(float, float, float);
 PROTO_TRAITS(double, double, double);
+PROTO_TRAITS(posit, posit, posit);
 PROTO_TRAITS(int32, int32, int);
 PROTO_TRAITS(uint8, int32, int);
 PROTO_TRAITS(uint16, int32, int);
@@ -412,6 +413,7 @@ struct ProtoHelper<qint32> {
     proto->mutable_int_val()->Swap(&copy);
   }
 };
+
 
 template <>
 struct ProtoHelper<bfloat16> {
@@ -661,6 +663,7 @@ bool Tensor::RefCountIsOne() const {
   switch (TYPE_ENUM) {                                         \
     CASE(float, SINGLE_ARG(STMTS))                             \
     CASE(double, SINGLE_ARG(STMTS))                            \
+    CASE(posit, SINGLE_ARG(STMTS))                            \
     CASE(int32, SINGLE_ARG(STMTS))                             \
     CASE(uint8, SINGLE_ARG(STMTS))                             \
     CASE(uint16, SINGLE_ARG(STMTS))                            \
@@ -941,6 +944,9 @@ string Tensor::SummarizeValue(int64 max_entries) const {
       break;
     case DT_DOUBLE:
       return SummarizeArray<double>(limit, num_elts, shape_, data);
+      break;
+    case DT_POSIT:
+      return SummarizeArray<posit>(limit, num_elts, shape_, data);
       break;
     case DT_UINT32:
       return SummarizeArray<uint32>(limit, num_elts, shape_, data);
