@@ -54,6 +54,7 @@ class ConditionalAccumulatorOp : public ConditionalAccumulatorBaseOp {
 TF_CALL_half(REGISTER_KERNELS_CPU);
 TF_CALL_float(REGISTER_KERNELS_CPU);
 TF_CALL_double(REGISTER_KERNELS_CPU);
+TF_CALL_posit(REGISTER_KERNELS_CPU);
 
 #undef REGISTER_KERNELS_CPU
 #undef REGISTER_KERNELS

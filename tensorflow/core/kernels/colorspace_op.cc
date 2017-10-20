@@ -118,6 +118,7 @@ class HSVToRGBOp : public OpKernel {
   template class HSVToRGBOp<CPUDevice, T>;
 TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);
+TF_CALL_posit(REGISTER_CPU);
 
 #if GOOGLE_CUDA
 // Forward declarations of the function specializations for GPU (to prevent

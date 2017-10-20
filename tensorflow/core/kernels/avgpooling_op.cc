@@ -354,6 +354,7 @@ class AvgPoolingGradOp : public OpKernel {
 
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit(REGISTER_CPU_KERNEL);
 TF_CALL_half(REGISTER_CPU_KERNEL);
 
 #if GOOGLE_CUDA

@@ -100,6 +100,7 @@ TF_CALL_int64(REGISTER_SYCL_KERNEL);
 
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit(REGISTER_CPU_KERNEL);
 TF_CALL_int32(REGISTER_CPU_KERNEL);
 TF_CALL_int64(REGISTER_CPU_KERNEL);
 
@@ -170,6 +171,7 @@ class LinSpaceOp : public OpKernel {
 #define REGISTER_CPU_KERNEL(T) REGISTER_KERNEL_ALL_NUMS(DEVICE_CPU, T)
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit(REGISTER_CPU_KERNEL);
 
 // NOTE(touts): We register the op on GPU but it still runs on CPU
 // because its inputs and outputs are tagged as HostMemory.

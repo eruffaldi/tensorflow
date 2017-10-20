@@ -170,6 +170,7 @@ class SparseTensorDenseMatMulOp : public OpKernel {
 
 REGISTER_KERNELS_CPU(float);
 REGISTER_KERNELS_CPU(double);
+REGISTER_KERNELS_CPU(posit);
 REGISTER_KERNELS_CPU(int32);
 REGISTER_KERNELS_CPU(complex64);
 REGISTER_KERNELS_CPU(complex128);

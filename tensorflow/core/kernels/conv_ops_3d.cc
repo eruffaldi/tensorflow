@@ -147,6 +147,7 @@ class Conv3DOp : public BinaryOp<T> {
       Conv3DOp<CPUDevice, T>);
 TF_CALL_float(REGISTER_CPU_KERNEL);
 TF_CALL_double(REGISTER_CPU_KERNEL);
+TF_CALL_posit(REGISTER_CPU_KERNEL);
 #undef REGISTER_CPU_KERNEL
 
 #if GOOGLE_CUDA
