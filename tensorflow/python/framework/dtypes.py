@@ -334,6 +334,7 @@ quint8 = DType(types_pb2.DT_QUINT8)
 qint16 = DType(types_pb2.DT_QINT16)
 quint16 = DType(types_pb2.DT_QUINT16)
 qint32 = DType(types_pb2.DT_QINT32)
+posit  = DType(types_pb2.DT_POSIT)
 resource_ref = DType(types_pb2.DT_RESOURCE_REF)
 variant_ref = DType(types_pb2.DT_VARIANT_REF)
 bfloat16 = DType(types_pb2.DT_BFLOAT16)
@@ -359,6 +360,7 @@ quint8_ref = DType(types_pb2.DT_QUINT8_REF)
 qint16_ref = DType(types_pb2.DT_QINT16_REF)
 quint16_ref = DType(types_pb2.DT_QUINT16_REF)
 qint32_ref = DType(types_pb2.DT_QINT32_REF)
+posit_ref = DType(types_pb2.DT_POSIT)
 bfloat16_ref = DType(types_pb2.DT_BFLOAT16_REF)
 
 
@@ -385,6 +387,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QINT16: qint16,
     types_pb2.DT_QUINT16: quint16,
     types_pb2.DT_QINT32: qint32,
+    types_pb2.DT_POSIT: posit,
     types_pb2.DT_BFLOAT16: bfloat16,
     types_pb2.DT_RESOURCE: resource,
     types_pb2.DT_VARIANT: variant,
@@ -408,6 +411,7 @@ _INTERN_TABLE = {
     types_pb2.DT_QINT16_REF: qint16_ref,
     types_pb2.DT_QUINT16_REF: quint16_ref,
     types_pb2.DT_QINT32_REF: qint32_ref,
+    types_pb2.DT_POSIT_REF: posit_ref,
     types_pb2.DT_BFLOAT16_REF: bfloat16_ref,
     types_pb2.DT_RESOURCE_REF: resource_ref,
     types_pb2.DT_VARIANT_REF: variant_ref,
@@ -436,6 +440,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QINT16: "qint16",
     types_pb2.DT_QUINT16: "quint16",
     types_pb2.DT_QINT32: "qint32",
+    types_pb2.DT_POSIT: "posit",
     types_pb2.DT_BFLOAT16: "bfloat16",
     types_pb2.DT_RESOURCE: "resource",
     types_pb2.DT_VARIANT: "variant",
@@ -459,6 +464,7 @@ _TYPE_TO_STRING = {
     types_pb2.DT_QINT16_REF: "qint16_ref",
     types_pb2.DT_QUINT16_REF: "quint16_ref",
     types_pb2.DT_QINT32_REF: "qint32_ref",
+    types_pb2.DT_POSIT_REF: "posit_ref",
     types_pb2.DT_BFLOAT16_REF: "bfloat16_ref",
     types_pb2.DT_RESOURCE_REF: "resource_ref",
     types_pb2.DT_VARIANT_REF: "variant_ref",
@@ -485,6 +491,7 @@ _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
 _np_qint16 = np.dtype([("qint16", np.int16, 1)])
 _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
 _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+_np_posit = np.dtype([("posit", np.int32, 1)])
 
 # Custom struct dtype for directly-fed ResourceHandles of supported type(s).
 np_resource = np.dtype([("resource", np.ubyte, 1)])
@@ -511,6 +518,7 @@ _NP_TO_TF = frozenset([
     (_np_qint16, qint16),
     (_np_quint16, quint16),
     (_np_qint32, qint32),
+    (_np_posit, posit),
     # NOTE(touts): Intentionally no way to feed a DT_BFLOAT16.
 ])
 _TF_TO_NP = {
@@ -537,6 +545,7 @@ _TF_TO_NP = {
     types_pb2.DT_QUINT16: _np_quint16,
     types_pb2.DT_QINT32: _np_qint32,
     types_pb2.DT_BFLOAT16: np.uint16,
+    types_pb2.DT_POSIT: _np_posit,
 
     # Ref types
     types_pb2.DT_HALF_REF: np.float16,
@@ -559,6 +568,7 @@ _TF_TO_NP = {
     types_pb2.DT_QINT16_REF: _np_qint16,
     types_pb2.DT_QUINT16_REF: _np_quint16,
     types_pb2.DT_QINT32_REF: _np_qint32,
+    types_pb2.DT_POSIT_REF: _np_posit,
     types_pb2.DT_BFLOAT16_REF: np.uint16,
 }
 
